@@ -49,7 +49,15 @@ class GameScene extends Phaser.Scene {
 
 		const bugGen = () => {
 			const xCoord = Math.random() * 640
-			if (xCoord > 320){bugs.create(xCoord, 10, 'bug1')}else{bugs.create(xCoord, 10, 'bug2')}
+			if (xCoord < 150){
+				bugs.create(xCoord, 10, 'bug1')
+			}
+			else if(xCoord > 150 && xCoord < 300){
+				bugs.create(xCoord, 10, 'bug3');
+			}
+			else{
+				bugs.create(xCoord, 10, 'bug2')
+			}
 		}
 
 		const bugGenLoop = this.time.addEvent({
